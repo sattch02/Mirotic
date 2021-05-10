@@ -7,10 +7,12 @@ public class EnemyManager : MonoBehaviour
 {
     public Transform target;
     NavMeshAgent agent;
+    Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
         agent.destination = target.position;
     }
@@ -19,5 +21,15 @@ public class EnemyManager : MonoBehaviour
     void Update()
     {
         agent.destination = target.position;
+        animator.SetFloat("Distance", agent.remainingDistance);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Damager damager = other.GetComponent<Damager>();
+        if (damager != null)
+        {
+            Debug.Log("敵はダメージを受ける");
+        }
     }
 }

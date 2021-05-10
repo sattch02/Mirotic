@@ -78,11 +78,14 @@ public class PlayerManager : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // ダメージ与えるヤツの攻撃食らったら
+
         Damager damager = other.GetComponent<Damager>();
         if (damager != null)
         {
-            animator.SetTrigger("Hurt");
-            Damage(damager.damage);
+            Debug.Log("プレイヤーはダメージを受ける");
+            //animator.SetTrigger("Hurt");
+            //Damage(damager.damage);
         }
+
     }
 }
