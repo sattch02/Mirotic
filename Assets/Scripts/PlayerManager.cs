@@ -83,7 +83,7 @@ public class PlayerManager : MonoBehaviour
         if (damager != null)
         {
             Debug.Log("プレイヤーはダメージを受ける");
-            //animator.SetTrigger("Hurt");
+            animator.SetTrigger("Hurt");
             //Damage(damager.damage);
         }
 

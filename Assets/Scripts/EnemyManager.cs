@@ -6,6 +6,8 @@ using UnityEngine.AI;
 public class EnemyManager : MonoBehaviour
 {
     public Transform target;
+    public Collider weaponCollider;
+
     NavMeshAgent agent;
     Animator animator;
 
@@ -15,6 +17,7 @@ public class EnemyManager : MonoBehaviour
         animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
         agent.destination = target.position;
+        DisableColliderWeapon();
     }
 
     // Update is called once per frame
@@ -24,12 +27,25 @@ public class EnemyManager : MonoBehaviour
         animator.SetFloat("Distance", agent.remainingDistance);
     }
 
+    // 武器の当たり判定無効化
+    public void DisableColliderWeapon()
+    {
+        weaponCollider.enabled = false;
+    }
+
+    // 武器の当たり判定有効化
+    public void EnableColliderWeapon()
+    {
+        weaponCollider.enabled = true;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         Damager damager = other.GetComponent<Damager>();
         if (damager != null)
         {
             Debug.Log("敵はダメージを受ける");
+            animator.SetTrigger("Hurt");
         }
     }
 }
