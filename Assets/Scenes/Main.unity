@@ -1731,7 +1731,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 976755165}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -3218,6 +3218,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3097031872355578818}
+  - component: {fileID: 3097031872355578830}
+  - component: {fileID: 3097031872355578831}
   m_Layer: 0
   m_Name: Axe
   m_TagString: Untagged
@@ -3225,6 +3227,32 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!65 &3097031872355578830
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3097031872355578829}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5, y: 122, z: 50}
+  m_Center: {x: -2.1, y: 46.7, z: 45.1}
+--- !u!114 &3097031872355578831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3097031872355578829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ffdbc06be1034cb6b308841e26add7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
 --- !u!1 &3097031872431744545
 GameObject:
   m_ObjectHideFlags: 0
@@ -3406,6 +3434,7 @@ GameObject:
   - component: {fileID: 3097031872941736934}
   - component: {fileID: 3097031872941736935}
   - component: {fileID: 3097031872941736936}
+  - component: {fileID: 3097031872941736937}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -3423,7 +3452,7 @@ Animator:
   m_GameObject: {fileID: 3097031872941736932}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: eb5e3fc8d0caf3945a6effdb6372a9c7, type: 3}
-  m_Controller: {fileID: 9100000, guid: e58bf4525b7cc80459d6f7ff033ea067, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9e393b58e45074857a011b190ccb0281, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3461,7 +3490,7 @@ NavMeshAgent:
   m_Speed: 2
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 300
   m_StoppingDistance: 2
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -3483,6 +3512,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 5522846091500636997}
+  weaponCollider: {fileID: 3097031872355578830}
+  maxHp: 30
+--- !u!136 &3097031872941736937
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3097031872941736932}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.8
+  m_Height: 2.2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.1, z: 0}
 --- !u!4 &3097031873058127320
 Transform:
   m_ObjectHideFlags: 0
@@ -4357,7 +4402,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5522846091500541733}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 1.5

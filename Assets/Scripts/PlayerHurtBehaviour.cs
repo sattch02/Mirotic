@@ -8,7 +8,8 @@ public class PlayerHurtBehaviour : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.ResetTrigger("Hurt");
-        animator.GetComponent<PlayerManager>().moveSpeed = 0.5f;
+        animator.GetComponent<PlayerManager>().moveSpeed = 0.4f;
+        animator.GetComponent<PlayerManager>().DisableColliderWeapon();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

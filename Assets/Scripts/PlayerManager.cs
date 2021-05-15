@@ -17,6 +17,8 @@ public class PlayerManager : MonoBehaviour
     public int maxHp = 100;
     private int hp;
 
+    private bool isDie = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,6 +45,10 @@ public class PlayerManager : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (isDie)
+        {
+            return;
+        }
         // 自キャラの向き
         Vector3 direction = transform.position + new Vector3(xPos, 0, zPos) * moveSpeed;
         transform.LookAt(direction);
@@ -71,20 +77,27 @@ public class PlayerManager : MonoBehaviour
         if (hp <= 0)
         {
             hp = 0;
+            animator.SetTrigger("Die");
+            rb.velocity = Vector3.zero;
+            isDie = true;
         }
         playerUIManager.UpdateHp(hp);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        // ダメージ与えるヤツの攻撃食らったら
+        if (isDie)
+        {
+            return;
+        }
 
+        // ダメージ与えるヤツの攻撃食らったら
         Damager damager = other.GetComponent<Damager>();
         if (damager != null)
         {
             Debug.Log("プレイヤーはダメージを受ける");
             animator.SetTrigger("Hurt");
-            //Damage(damager.damage);
+            Damage(damager.damage);
         }
 
     }

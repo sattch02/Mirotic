@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class PlayerUIManager : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class PlayerUIManager : MonoBehaviour
 
     public void UpdateHp(int hp)
     {
-        hpSlider.value = hp;
+        hpSlider.DOValue(hp, 0.3f);
     }
 
 }
