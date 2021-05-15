@@ -7,6 +7,6 @@ public class LookAtCamera : MonoBehaviour
     // UIをカメラに向ける
     void Update()
     {
-        transform.LookAt(Camera.main.transform);
+        transform.rotation = Camera.main.transform.rotation;
     }
 }
