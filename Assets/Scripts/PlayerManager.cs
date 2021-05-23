@@ -11,7 +11,7 @@ public class PlayerManager : MonoBehaviour
     public float xPos;
     public float zPos;
 
-    public float moveSpeed = 5;
+    public float moveSpeed = 3;
     public Collider weaponCollider;
     public PlayerUIManager playerUIManager;
     public int maxHp = 100;
@@ -89,6 +89,12 @@ public class PlayerManager : MonoBehaviour
         if (isDie)
         {
             return;
+        }
+
+        if (other.gameObject.tag == "key")
+        {
+            Debug.Log("アイテム取得");
+            Destroy(other.gameObject);
         }
 
         // ダメージ与えるヤツの攻撃食らったら

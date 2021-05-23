@@ -20,7 +20,7 @@ public class PlayerAttackBehaviour : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         // 攻撃アニメーションを抜ける時
-        animator.GetComponent<PlayerManager>().moveSpeed = 5;
+        animator.GetComponent<PlayerManager>().moveSpeed = 3;
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

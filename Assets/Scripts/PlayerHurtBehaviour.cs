@@ -23,7 +23,7 @@ public class PlayerHurtBehaviour : StateMachineBehaviour
     {
         animator.ResetTrigger("Hurt");
         // 攻撃アニメーションを抜ける時
-        animator.GetComponent<PlayerManager>().moveSpeed = 5;
+        animator.GetComponent<PlayerManager>().moveSpeed = 3;
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
